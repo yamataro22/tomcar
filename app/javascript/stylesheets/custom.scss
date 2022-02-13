@@ -3,7 +3,7 @@ body
 {
     .container#main-container
     {
-        padding-top: 100px !important;
+        padding-top: 150px !important;
     }
 }
 
@@ -25,4 +25,22 @@ header
     {
         margin-bottom: 20px;
     }
+}
+
+#upper-nav
+{
+    background-color: $blue-900;
+    padding: 0;
+    line-height: 22px;
+    color: white;
+    .mail
+    {
+        font-size: medium;
+    }
+}
+
+#main-nav
+{
+    margin-top: 35px;
+    background-color: $blue-800;
 }
