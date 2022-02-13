@@ -20,7 +20,7 @@
     </nav>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark" id="main-nav">
         <div class="container">
-            <a class="navbar-brand" href="#">TOM-CAR</a>
+            <%= link_to "TOM-CAR", root_url, class: "navbar-brand" %>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Katalog produktów</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">O nas</a>
+                        <%= link_to "O nas", main_pages_about_path, class:"nav-link active" %>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
