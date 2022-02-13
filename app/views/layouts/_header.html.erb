@@ -34,21 +34,29 @@
                     <li class="nav-item">
                         <%= link_to "O nas", main_pages_about_path, class:"nav-link active" %>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Panel administratora
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Status strony</a></li>
-                            <li><a class="dropdown-item" href="#">Edytuj kategorie</a></li>
-                            <li><a class="dropdown-item" href="#">Dodaj/usuń produkty</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Wyloguj się</a></li>
-                        </ul>
-                    </li>
+                    <% if logged_in? %> 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Panel administratora
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Status strony</a></li>
+                                <li><a class="dropdown-item" href="#">Edytuj kategorie</a></li>
+                                <li><a class="dropdown-item" href="#">Dodaj/usuń produkty</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <%= link_to "Wyloguj się", logout_path, method: "delete", class:"dropdown-item"  %>
+                                </li>
+                            </ul>
+                        </li>
+                    <% else %>
+                        <li class="nav-item">
+                            <%= link_to "Zaloguj się", login_path, class:"nav-link active" %>
+                        </li>
+                    <% end %>
                 </ul>
             </div>
         </div>

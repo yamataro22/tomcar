@@ -1,3 +1,13 @@
+@mixin box-sizing
+{
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:         border-box;
+}
+
+html{
+    overflow-y: scroll;
+}
 
 body
 {
@@ -43,4 +53,61 @@ header
 {
     margin-top: 35px;
     background-color: $blue-800;
+}
+
+
+h1{
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+input, textarea, select, .uneditable-input
+{
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px; //!important;
+    @include box_sizing;
+}
+
+input
+{
+    height: auto !important;
+}
+
+.checkbox
+{
+    margin-top: -10px;
+    margin-bottom: 10px;
+    span
+    {
+        margin-top: 2px;
+        margin-left: 20px;
+        font-weight: normal;
+    }
+}
+#session_remember_me
+{
+    width: auto;
+    margin-left: 0;
+}
+
+header{
+    ul
+    {
+        li{
+            a{
+                text-decoration: none;
+                font-size:large;
+                &:hover
+                {
+                    text-decoration: none;
+                    color: red !important;
+                }
+            }
+        }
+    }
 }
