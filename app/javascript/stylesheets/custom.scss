@@ -1,0 +1,28 @@
+
+body
+{
+    .container#main-container
+    {
+        padding-top: 100px !important;
+    }
+}
+
+header
+{
+    nav
+    {
+        .navbar-brand
+        {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    }
+}
+
+.newest-offers
+{
+    h3
+    {
+        margin-bottom: 20px;
+    }
+}
