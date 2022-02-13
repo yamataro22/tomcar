@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(password)
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        flash[:success] = "Udało się zalogować!"
         redirect_back_or root_url
     else
       flash.now[:danger] = "Nieprawiłowy login/hasło"
@@ -19,7 +20,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out if logged_in?
+    if logged_in?
+      log_out
+      flash[:success] = "Udało się wylogować"
+    end
     redirect_to root_path
   end
 end
