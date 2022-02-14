@@ -1,7 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-cars:
-  name: "Cars"
+sedan:
+  name: "Sedan"
+  category: cars
 
-tyres:
-  name: "Tyres"
+hatchback:
+  name: "Hatchback"
+  category: cars
+
+tyre18:
+  name: "18 cali"
+  category: tyres
+
+tyre20:
+  name: "20 cali"
+  category: tyres

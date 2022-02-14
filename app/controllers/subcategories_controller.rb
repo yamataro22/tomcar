@@ -2,6 +2,7 @@ class SubcategoriesController < ApplicationController
   before_action :logged_in_users, only: [:update, :index, :create, :edit, :destroy]
 
   def index
+    @categories = Category.all
     @subcategories = Subcategory.all
     @subcategory = Subcategory.new
   end
@@ -29,8 +30,8 @@ class SubcategoriesController < ApplicationController
 
   def update
     @subcategory = Subcategory.find(params[:id])
+
     if @subcategory.nil?
-      debugger
       flash[:danger] = "Próba edycji nieistniejącej kategori."
       redirect_to root_url
     end

@@ -2,17 +2,24 @@
     <div class="row my-3 mb-5 col-md-8 offset-md-2">
         <h2>Stwórz nową podkategorię</h2>
         <%= form_with(model: @subcategory, scope: :subcategory, local: true) do |f| %>
-            <%= render "shared/error_messages", object: f.object %>
-            <%= f.label :name, "Nazwa podkategorii" %>
-            <%= f.text_field :name, class: "form-control" %>
-            <%= f.submit "Stwórz nową", class: "btn btn-primary" %>
-        <% end %>
+            <%= render "shared/error_messages" , object: f.object %>
+                <%= f.label :name, "Nazwa podkategorii" %>
+                    <%= f.text_field :name, class: "form-control" %>
+                        <%= f.submit "Stwórz nową" , class: "btn btn-primary" %>
+                            <% end %>
     </div>
 
     <div class="row col-md-12">
         <ul class="list-group">
-            <% @subcategories.each do |subcategory| %>
-                <%= render subcategory %>
+            <% @categories.each do |category| %>
+                <li class="list-group">
+                    <%= render category %>
+                    <ol class="list-group">
+                        <% category.subcategories.each do |subcategory| %>
+                            <%= render subcategory %>
+                        <% end %>
+                    </ol>
+                </li>
             <% end %>
         </ul>
     </div>

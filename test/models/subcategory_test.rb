@@ -3,7 +3,8 @@ require "test_helper"
 class SubcategoryTest < ActiveSupport::TestCase
 
   def setup 
-    @subcategory = Subcategory.new(name: "Description")
+    @category = categories(:cars)
+    @subcategory = @category.subcategories.build(name: "Description")
   end
 
   test "should be valid" do

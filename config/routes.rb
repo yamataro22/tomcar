@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :subcategories, only: [:index, :create, :destroy, :edit, :update]
+  resources :categories, only: [:index, :create, :destroy, :edit, :update]
 end

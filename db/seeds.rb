@@ -9,9 +9,12 @@
 User.create!(email: "example@example.pl", 
              password: "password", password_confirmation: "password")
 
+cars  = Category.create!(name: "Samochody")
+tyres = Category.create!(name: "Opony")
 
-Subcategory.create!(name: "Samochody osobowe")
-Subcategory.create!(name: "Samochody dostawcze")
-Subcategory.create!(name: "Opony 20 cali")
-Subcategory.create!(name: "Opony 18 cali")
-Subcategory.create!(name: "Części do samochodów")
+
+cars.subcategories.create!(name: "Osobowe")
+cars.subcategories.create!(name: "Dostawcze")
+tyres.subcategories.create!(name: "Opony 20 cali")
+tyres.subcategories.create!(name: "Opony 18 cali")
+tyres.subcategories.create!(name: "Opony 16 cali")
