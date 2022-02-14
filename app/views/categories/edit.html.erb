@@ -1,0 +1,13 @@
+<div class="col-sm-12 col-md-8 offset-md-2">
+    <div class="row my-3 mb-5 col-md-10 offset-md-1">
+        <h3>Wprowadź nową nazwę dla kategorii: </h2>
+            <h3 class="mb-5">"<%= @category.name %>"<h3>
+
+        <%= form_with(model: @category, scope: :category, local: true) do |f| %>
+            <%= render "shared/error_messages", object: f.object %>
+            <%= f.label :name, "Nowa nazwa", class: "mb-2" %>
+            <%= f.text_field :name, class: "form-control" %>
+            <%= f.submit "Edytuj", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

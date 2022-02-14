@@ -1,0 +1,13 @@
+<li class="list-group-item">
+    <div class="row">
+        <div class="name col-sm-6">
+            <%= category.name %>
+        </div>
+        <div class="col-sm-2 ms-auto">
+            <%= link_to "Edytuj nazwę" , edit_category_path(category) %>
+        </div>
+        <div class="col-sm-2 ms-auto">
+            <%= link_to "Usuń kategorię" , category, method: :delete, data: { confirm: "Jesteś pewien?" } %>
+        </div>
+    </div>
+</li>

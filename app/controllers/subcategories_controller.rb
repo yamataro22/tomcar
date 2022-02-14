@@ -2,26 +2,26 @@ class SubcategoriesController < ApplicationController
   before_action :logged_in_users, only: [:update, :index, :create, :edit, :destroy]
 
   def index
-    @categories = Category.all
-    @subcategories = Subcategory.all
-    @subcategory = Subcategory.new
+    redirect_to categories_path
   end
 
   def create
-    @subcategory = Subcategory.new(subcategory_params)
+
+    @category = Category.find_by(name: subcategory_params[:category])
+    @subcategory = @category.subcategories.build(name: subcategory_params[:name])
+
     if @subcategory.save
-      flash[:success] = "Kategoria stworzona!"
-      redirect_to subcategories_path
+      flash[:success] = "Podkategoria stworzona!"
     else
-      @subcategories = Subcategory.all
-      render 'index'
+      flash[:warning] = "Nie udało sie stworzyć podkategorii"
     end
+    redirect_to categories_path
   end
 
   def destroy
     subcategory = Subcategory.find(params[:id]).destroy
     flash[:info] = "Podkategoria usunięta"
-    redirect_to subcategories_path
+    redirect_to categories_path
   end
 
   def edit
@@ -38,7 +38,7 @@ class SubcategoriesController < ApplicationController
 
     if (@subcategory.update(subcategory_params))
       flash[:success] = "Nazwa zmieniona"
-      redirect_to subcategories_path
+      redirect_to categories_path
     else
       render 'edit'
     end
@@ -47,7 +47,7 @@ class SubcategoriesController < ApplicationController
 private 
     
   def subcategory_params
-    params.require(:subcategory).permit(:name)
+    params.require(:subcategory).permit(:name, :category)
   end
 
 end

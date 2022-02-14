@@ -5,18 +5,7 @@ class SubcategoriesTest < ActionDispatch::IntegrationTest
     @user = users(:adam)
     @category = categories(:cars)
     @subcategories = @category.subcategories
-
     @subcategory = @subcategories.first
-  end
-
-  test "should show subcategories on index page" do 
-    log_in_as @user
-    get subcategories_path
-    assert_template 'subcategories/index'
-
-    @subcategories.each do |subcategory|
-      assert_match subcategory.name, response.body
-    end
   end
 
   test "user who is not logged in should not be able to see subcategories index" do
@@ -24,23 +13,23 @@ class SubcategoriesTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_path
   end
 
-  test "logged in user should be able to delete users" do
+  test "logged in user should be able to delete subcategories" do
     delete_category_text = "Usuń kategorię"
 
     log_in_as @user
-    get subcategories_path
+    get categories_path
     
-    assert_select 'a[href=?]', subcategory_path(@subcategories.second), 
-                              text: delete_category_text, method: :delete 
+    assert_select 'a[href=?]', subcategory_path(@subcategories.first), 
+                               text: delete_category_text, method: :delete 
 
-    assert_select 'a[href=?]', subcategory_path(@subcategory), 
-                              text: delete_category_text, method: :delete 
+    assert_select 'a[href=?]', subcategory_path(@subcategories.second), 
+                               text: delete_category_text, method: :delete 
 
     assert_difference 'Subcategory.count', -1 do
       delete subcategory_path(@subcategory)
     end
     
-    assert_redirected_to subcategories_path
+    assert_redirected_to categories_path
     follow_redirect!
     assert_not flash.empty?
 
@@ -75,14 +64,12 @@ class SubcategoriesTest < ActionDispatch::IntegrationTest
     log_in_as @user
     new_name = "Kaszana"
 
-    Rails::logger.debug "ADAM trying to post"
     post subcategories_path, params: { subcategory: { id: @subcategory.id,
-                                                      name: new_name}}
+                                                      name: new_name,
+                                                      category: @category.name}}
 
-    Rails::logger.debug "ADAM after post"
-    Rails::logger.debug flash
 
-    assert_redirected_to subcategories_path
+    assert_redirected_to categories_path
     follow_redirect!
     assert_not flash.empty?
 
