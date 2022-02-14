@@ -1,0 +1,31 @@
+<div class="subcategories col-sm-12 col-md-8 offset-md-2">
+    <div class="row my-3 mb-5 col-md-8 offset-md-2">
+        <h2>Stwórz nową podkategorię</h2>
+        <%= form_with(url: subcategories_path, scope: :subcategory, local: true) do |f| %>
+            <%= f.label :name, "Nazwa podkategorii" %>
+            <%= f.text_field :name, class: "form-control" %>
+            <%= f.submit "Stwórz nową", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+
+    <div class="row col-md-12">
+        <ul class="list-group">
+            <% @subcategories.each do |subcategory| %>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="name col-sm-8">
+                                    <%= subcategory.name %>
+                                </div>
+                                <div class="col-sm-2">
+                                    <%= link_to "Edytuj nazwę", "#" %>
+                                </div>
+                                <div class="col-sm-2">
+                                    <%= link_to "Usuń kategorię", subcategory, method: :delete,
+                                                                  data: { confirm: "Jesteś pewien?" } %>
+                                </div>
+                            </div>
+                        </li>
+                <% end %>
+        </ul>
+    </div>
+</div>

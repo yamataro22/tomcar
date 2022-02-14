@@ -6,5 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(email: "adam-wojtysiak1@wp.pl", 
+User.create!(email: "example@example.pl", 
              password: "password", password_confirmation: "password")
+
+
+Subcategory.create!(name: "Samochody osobowe")
+Subcategory.create!(name: "Samochody dostawcze")
+Subcategory.create!(name: "Opony 20 cali")
+Subcategory.create!(name: "Opony 18 cali")
+Subcategory.create!(name: "Części do samochodów")
