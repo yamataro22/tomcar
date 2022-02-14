@@ -12,21 +12,8 @@
     <div class="row col-md-12">
         <ul class="list-group">
             <% @subcategories.each do |subcategory| %>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="name col-sm-8">
-                                    <%= subcategory.name %>
-                                </div>
-                                <div class="col-sm-2">
-                                    <%= link_to "Edytuj nazwę", "#" %>
-                                </div>
-                                <div class="col-sm-2">
-                                    <%= link_to "Usuń kategorię", subcategory, method: :delete,
-                                                                  data: { confirm: "Jesteś pewien?" } %>
-                                </div>
-                            </div>
-                        </li>
-                <% end %>
+                <%= render subcategory %>
+            <% end %>
         </ul>
     </div>
 </div>

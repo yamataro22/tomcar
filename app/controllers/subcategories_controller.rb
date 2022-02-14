@@ -1,5 +1,5 @@
 class SubcategoriesController < ApplicationController
-  before_action :logged_in_users, only: [:index, :create, :edit, :destroy]
+  before_action :logged_in_users, only: [:update, :index, :create, :edit, :destroy]
 
   def index
     @subcategories = Subcategory.all
@@ -21,6 +21,26 @@ class SubcategoriesController < ApplicationController
     subcategory = Subcategory.find(params[:id]).destroy
     flash[:info] = "Podkategoria usunięta"
     redirect_to subcategories_path
+  end
+
+  def edit
+    @subcategory = Subcategory.find(params[:id])
+  end
+
+  def update
+    @subcategory = Subcategory.find(params[:id])
+    if @subcategory.nil?
+      debugger
+      flash[:danger] = "Próba edycji nieistniejącej kategori."
+      redirect_to root_url
+    end
+
+    if (@subcategory.update(subcategory_params))
+      flash[:success] = "Nazwa zmieniona"
+      redirect_to subcategories_path
+    else
+      render 'edit'
+    end
   end
 
 private 
