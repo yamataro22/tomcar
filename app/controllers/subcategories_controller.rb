@@ -1,7 +1,9 @@
 class SubcategoriesController < ApplicationController
+  before_action :logged_in_users, only: [:index, :create, :edit, :destroy]
 
   def index
     @subcategories = Subcategory.all
+    @subcategory = Subcategory.new
   end
 
   def create
@@ -11,7 +13,6 @@ class SubcategoriesController < ApplicationController
       redirect_to subcategories_path
     else
       @subcategories = Subcategory.all
-      flash.now[:danger] = "Nie udało się stworzyć nowej kategorii"
       render 'index'
     end
   end
@@ -29,3 +30,4 @@ private
   end
 
 end
+

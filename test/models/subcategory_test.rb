@@ -22,4 +22,6 @@ class SubcategoryTest < ActiveSupport::TestCase
     @subcategory.name = 'a' * 21
     assert_not @subcategory.valid?
   end
+
+
 end
