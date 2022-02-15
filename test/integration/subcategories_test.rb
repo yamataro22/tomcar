@@ -8,11 +8,6 @@ class SubcategoriesTest < ActionDispatch::IntegrationTest
     @subcategory = @subcategories.first
   end
 
-  test "user who is not logged in should not be able to see subcategories index" do
-    get subcategories_path
-    assert_redirected_to login_path
-  end
-
   test "logged in user should be able to delete subcategories" do
     delete_category_text = "Usuń kategorię"
 

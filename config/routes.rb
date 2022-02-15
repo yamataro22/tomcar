@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   post 'login'     => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  resources :subcategories, only: [:index, :create, :destroy, :edit, :update]
+  resources :subcategories, only: [:create, :destroy, :edit, :update]
   resources :categories, only: [:index, :create, :destroy, :edit, :update]
 end
