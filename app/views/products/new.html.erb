@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1>Dodaj nowy produkt: </h1>
+    <%= form_with(model: @product, scope: :product, local: true) do |f| %>
+        <%= render "shared/error_messages" , object: f.object %>
+        <%= f.label :category, text: "Kategoria?" %>
+        <%= f.select :category, @categories.map{|cat| cat.name}, {}, { :class => 'form-select' } %>
+        <%= f.label :sucategory, text: "Podkategoria?" %>
+        <%= f.select :category, Subcategory.all.map{|cat| cat.name}, {}, { :class => 'form-select' } %>
+        <%= f.label :short_description, text: "Krótki opis" %>
+        <%= f.text_field :name, class: "form-control" %>
+        <%= f.label :long_description, text: "Dłuższy opis" %>
+        <%= f.text_field :name, class: "form-control" %>
+        <%= f.label :price, text: "Cena" %>
+        <%= f.number_field :amount, step: 0.5 %>
+        <%= f.submit "Stwórz nowy!", class:"btn btn-primary"%>
+    <% end %>
+  </div>
+</div>

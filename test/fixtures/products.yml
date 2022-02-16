@@ -1,0 +1,23 @@
+polo:
+  name: Volkswagen Polo
+  short_description: Rocznik 2014 nieklepany
+  long_description: <%= Faker::Lorem.sentence(word_count: 50) %>
+  price: 15000.00
+
+peugeot:
+  name: Peugeot 307
+  short_description: Rocznik 1995, klepany raz czy dwa
+  long_description: <%= Faker::Lorem.sentence(word_count: 50) %>
+  price: 8000.50
+
+tyre_polo:
+  name: Oponka do Polo
+  short_description: wymiary takie a takie, zimowe
+  long_description: <%= Faker::Lorem.sentence(word_count: 50) %>
+  price: 800
+
+tyre_peugeot:
+  name: Oponka do Peżo
+  short_description: wymiary takie a takie, letnie
+  long_description: <%= Faker::Lorem.sentence(word_count: 50) %>
+  price: 500
