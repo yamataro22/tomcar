@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'categories/index'
   root 'main_pages#home'
   get  'main_pages/home'
   get  'main_pages/about'
@@ -12,5 +13,5 @@ Rails.application.routes.draw do
 
   resources :subcategories, only: [:create, :destroy, :edit, :update]
   resources :categories, only: [:index, :create, :destroy, :edit, :update]
-  resources :products
+  resources :products, only: [:index, :new, :edit]
 end
