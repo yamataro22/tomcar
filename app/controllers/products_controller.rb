@@ -1,11 +1,25 @@
 class ProductsController < ApplicationController
+  before_action :logged_in_users, only: [:index, :new, :create, :edit]
   def index
     @categories = Category.all
   end
 
   def new
     @product = Product.new
-    @categories = Category.all
+
+    @subcategory_id = params[:subcategory_id]
+    @subcategory = Subcategory.find(@subcategory_id)
+
+    if (@subcategory.nil?)
+      flash[:danger] = "Niewłaściwa podkategoria"
+      redirect_to products_path
+    else
+      @category = @subcategory.category
+    end
+  end
+
+  def create
+    
   end
 
   def edit

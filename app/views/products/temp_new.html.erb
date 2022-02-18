@@ -1,6 +1,23 @@
 <div class="row">
   <div class="col-md-6 offset-md-3">
-    <h1>Dodaj nowy produkt: </h1>
+    <h1>Dodaj nowy produkt </h1>
+    <div class="row">
+      <div class="col">
+        <h2>Kategoria: </h1>
+      </div>
+      <div class="col">
+        <%= @category.name %>
+      </div>
+    </div>
+      <div class="col">
+        <h2>Podkategoria: </h1>
+      </div>
+      <div class="col">
+        <%= @subcategory.name %>
+      </div>
+      <div class="row">
+    </div>
+
     <%= form_with(model: @product, scope: :product, local: true) do |f| %>
         <%= render "shared/error_messages" , object: f.object %>
         <%= f.label :category, text: "Kategoria?" %>
