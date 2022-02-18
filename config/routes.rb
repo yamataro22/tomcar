@@ -13,5 +13,5 @@ Rails.application.routes.draw do
 
   resources :subcategories, only: [:create, :destroy, :edit, :update]
   resources :categories, only: [:index, :create, :destroy, :edit, :update]
-  resources :products, only: [:index, :create, :new, :edit]
+  resources :products, only: [:show, :index, :create, :new, :edit]
 end

@@ -6,7 +6,7 @@
         <h3>Kategoria: </h1>
       </div>
       <div class="col">
-        <h3><%= @category.name %></h3>      
+        <h3><%= @subcategory.category.name %></h3>      
       </div>
     </div>
     <div class="row border-bottom">
@@ -20,7 +20,7 @@
     <div class="row mt-3">
       <%= form_with(model: @product, scope: :product, local: true) do |f| %>
         <%= render "shared/error_messages" , object: f.object %>
-        <%= f.hidden_field subcategory_id: @subcategory_id %>
+        <%= f.hidden_field :subcategory_id, value: @subcategory_id %>
         <%= f.label :name, "Nazwa produktu" %>
         <%= f.text_field :name, class: "form-control" %>
         <%= f.label :short_description, "Krótki opis" %>
@@ -28,7 +28,7 @@
         <%= f.label :long_description, "Dłuższy opis" %>
         <%= f.text_field :long_description, class: "form-control" %>
         <%= f.label :price, "Cena" %>
-        <%= f.number_field :amount, step: 0.5 %>
+        <%= f.number_field :price, step: 0.5 %>
         <%= f.submit "Stwórz nowy!" , class:"btn btn-primary"%>
       <% end %>
     </div>

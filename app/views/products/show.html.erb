@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="row">
+            <div class="col">
+                <h3>
+                    Kategoria: 
+                </h3>
+            </div>
+            <div class="col">
+                <h3>
+                    <%= @product.subcategory.category.name %>
+                </h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h3>
+                    Podkategoria: 
+                </h3>
+            </div>
+            <div class="col">
+                <h3>
+                    <%= @product.subcategory.name %>
+                </h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h3>
+                    Nazwa: 
+                </h3>
+            </div>
+            <div class="col">
+                <h3>
+                    <%= @product.name %>
+                </h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h3>
+                    Krótki opis: 
+                </h3>
+            </div>
+            <div class="col">
+                <h3>
+                    <%= @product.short_description %>
+                </h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h3>
+                    Cena: 
+                </h3>
+            </div>
+            <div class="col">
+                <h3>
+                    <%= @product.price %>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,7 +8,7 @@
                         <ol class="list-group">
                             <% category.subcategories.each do |subcategory| %>
                                 <li class="list-group-item">
-                                    <div class="row">
+                                    <div class="row align-items-center">
                                         <div class="col-sm-1 text-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-arrow-return-right"
@@ -17,10 +17,14 @@
                                                     d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z" />
                                             </svg>
                                         </div>
-                                        <div class="name col-sm-5">
+                                        <div class="name col-sm-3">
                                             <%= subcategory.name %>
                                         </div>
-                                        <div class="col-sm-3 ms-auto">
+                                        <div class="name col-sm-3">
+                                            <% count = subcategory.products.count %>
+                                            Zawiera <%= count %> <%= pluralize_product(count) %>.
+                                        </div>
+                                        <div class="col-sm-2 ms-auto">
                                             <%= link_to "Dodaj produkt" , new_product_path(subcategory_id: subcategory.id) %>
                                         </div>
 

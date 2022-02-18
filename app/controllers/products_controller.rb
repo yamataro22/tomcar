@@ -19,7 +19,19 @@ class ProductsController < ApplicationController
   end
 
   def create
-    
+    @subcategory = Subcategory.find(products_params[:subcategory_id])
+    @product = @subcategory.products.build(products_params)
+
+    if @product.save
+      flash[:success] = "Udało się stworzyć produkt"
+      redirect_to @product
+    else
+      render 'new'
+    end
+  end
+
+  def show
+    @product = Product.find(params[:id])
   end
 
   def edit
@@ -31,6 +43,17 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.json { render json: @subcategory }
     end
+  end
+
+private
+
+  def products_params
+    params.require(:product).permit(:name, 
+                                    :subcategory_id,
+                                    :short_description,
+                                    :long_description,
+                                    :price)
+
   end
 
 end

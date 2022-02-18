@@ -1,7 +1,14 @@
 <% if object.errors.any? %>
     <div id = "error_explanation">
         <div class = "alert alert-danger">
-            Arkusz zawiera <%= pluralize(object.errors.count, "błąd") %>:
+            Arkusz zawiera <%= object.errors.count %>
+                            <% if object.errors.count == 1 %>
+                                <%= "błąd:" %>
+                            <% elsif object.errors.count >= 1 && object.errors.count < 5 %>
+                                <%= "błędy:" %>
+                            <% else %>
+                                <%= "błędów:" %>
+                            <% end %>
         </div>
         <ul>
             <% object.errors.full_messages.each do |msg| %>
@@ -9,6 +16,8 @@
                     <% msg = "Za długa nazwa (max 20 znaków)" %>
                 <% elsif msg == "Name can't be blank" %>
                     <% msg = "Nazwa nie może być pusta" %>
+                <% elsif msg == "Short description can't be blank" %>
+                    <% msg = "Krótki opis nie może być pusty" %>
                 <% end %>
                 <li><%= msg %></li>
             <% end %>
