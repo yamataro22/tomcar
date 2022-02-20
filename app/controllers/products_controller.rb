@@ -19,14 +19,16 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @subcategory = Subcategory.find(products_params[:subcategory_id])
+    cat_id = products_params[:subcategory_id]
+    @subcategory = Subcategory.find(cat_id)
+
     @product = @subcategory.products.build(products_params)
 
     if @product.save
       flash[:success] = "Udało się stworzyć produkt"
       redirect_to @product
     else
-      render 'new'
+      render 'new', subcategory_id: cat_id
     end
   end
 

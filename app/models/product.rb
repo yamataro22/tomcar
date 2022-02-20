@@ -4,4 +4,5 @@ class Product < ApplicationRecord
                                   length: { maximum: 20 }
     validates :short_description, presence: true, 
                                   length: { maximum: 120 }
+
 end

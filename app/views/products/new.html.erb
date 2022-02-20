@@ -20,7 +20,7 @@
     <div class="row mt-3">
       <%= form_with(model: @product, scope: :product, local: true) do |f| %>
         <%= render "shared/error_messages" , object: f.object %>
-        <%= f.hidden_field :subcategory_id, value: @subcategory_id %>
+        <%= f.hidden_field :subcategory_id, value: (f.object.subcategory_id.presence || params[:subcategory_id]) %>
         <%= f.label :name, "Nazwa produktu" %>
         <%= f.text_field :name, class: "form-control" %>
         <%= f.label :short_description, "Krótki opis" %>
