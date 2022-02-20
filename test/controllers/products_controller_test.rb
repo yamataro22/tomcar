@@ -28,4 +28,12 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_template 'products/edit'
   end
 
+  test "only logged-in users should be able to delete products" do
+    assert_no_difference 'Product.count' do
+      delete product_path(@product)
+    end
+    assert_redirected_to login_path
+    assert_not flash.empty?
+  end
+
 end

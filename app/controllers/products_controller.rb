@@ -1,14 +1,14 @@
 class ProductsController < ApplicationController
-  before_action :logged_in_users, only: [:index, :new, :create, :edit]
+  before_action :logged_in_users
   def index
     @categories = Category.all
   end
 
   def new
-    @product = Product.new
-
     @subcategory_id = params[:subcategory_id]
     @subcategory = Subcategory.find(@subcategory_id)
+
+    @product = @subcategory.products.build
 
     if (@subcategory.nil?)
       flash[:danger] = "Niewłaściwa podkategoria"
@@ -37,6 +37,12 @@ class ProductsController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    Product.find(params[:id]).destroy
+    flash[:success] = "Produkt usunięty"
+    redirect_to products_path
   end
 
   def populate_other_list

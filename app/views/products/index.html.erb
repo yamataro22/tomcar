@@ -67,7 +67,8 @@
                                                     <%= link_to "Edytuj" , '#', class: "btn btn-primary" %>
                                                 </div>
                                                 <div class="col-sm-1 text-center mx-1 me-3">
-                                                    <%= link_to "Usuń" , '#', class: "btn btn-primary" %>
+                                                    <%= link_to "Usuń", product, method: :delete, class: "btn btn-primary",
+                                                                         data: { confirm: "Jesteś pewien?" } %>
                                                 </div>
                                             </div>
                                         <% end %>
