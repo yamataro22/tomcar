@@ -1,4 +1,4 @@
-<div class="main-div col-md-8 offset-md-2">
+<div class="main-div col-sm-8 offset-sm-2 col-md-12 offset-md-0 col-xl-12 offset-xl-0">
     <header class="description">
         <p>
             Witamy na stronie firmy TOM-CAR.
@@ -10,8 +10,13 @@
             <h3>Najnowsze oferty</h1>
         </span>
         <div class="row">
-            <div class="col-lg-6 offset-lg-0 col-md-10 offset-md-1 col-xs-12 my-2">
-                <div class="card" style="width: 20rem;">
+            <% @newest_products .each do |product| %>
+                <%= render 'shared/product_card', product: product %>
+            <% end %>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-0 col-xs-12 my-2">
+                <div class="card mx-auto" style="width: 20rem;">
                     <img src="https://picsum.photos/id/1071/200/180" class="card-img-top img-fluid" alt="Picture">
                     <div class="card-body">
                         <h5 class="card-title">Felga BMW 20 cali</h5>
@@ -25,8 +30,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 offset-lg-0 col-md-10 offset-md-1 col-xs-12 my-2">
-                <div class="card" style="width: 20rem;">
+            <div class="col-lg-6 offset-lg-0 col-xs-12 my-2">
+                <div class="card mx-auto" style="width: 20rem;">
                     <img src="https://picsum.photos/id/1070/200/180" class="card-img-top img-fluid" alt="Picture">
                     <div class="card-body">
                         <h5 class="card-title">Opony 20 cali</h5>

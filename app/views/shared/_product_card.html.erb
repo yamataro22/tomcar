@@ -1,0 +1,14 @@
+<div class=" col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-12 col-xs-12 my-2 mx-auto">
+    <div class="card mx-auto" style="width: 20rem; ">
+        <%= image_tag product.display_image if product.image.attached? %>
+        <div class="card-body">
+            <h5 class="card-title"><%= product.name %></h5>
+            <p class="card-text">
+                <%= product.short_description %>
+            </p>
+        </div>
+        <div class="card-footer text-muted">
+            Cena: <%= product.price %> zł
+        </div>
+    </div>
+</div>

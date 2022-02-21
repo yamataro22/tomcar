@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
     @subcategory = Subcategory.find(cat_id)
 
     @product = @subcategory.products.build(products_params)
+    @product.image.attach(params[:product][:image])
 
     if @product.save
       flash[:success] = "Udało się stworzyć produkt"
@@ -60,7 +61,8 @@ private
                                     :subcategory_id,
                                     :short_description,
                                     :long_description,
-                                    :price)
+                                    :price,
+                                    :image)
 
   end
 

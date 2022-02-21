@@ -29,6 +29,9 @@
         <%= f.text_field :long_description, class: "form-control" %>
         <%= f.label :price, "Cena" %>
         <%= f.number_field :price, step: 0.5 %>
+        <span class="image">
+          <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+        </span>
         <%= f.submit "Stwórz nowy!" , class:"btn btn-primary"%>
       <% end %>
     </div>
