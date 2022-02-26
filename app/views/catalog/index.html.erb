@@ -1,39 +1,13 @@
-<div class="container-xxl my-md-4 bd-layout">
-    <aside class="bd-sidebar bg-success" style="display: block;">
-        <nav class="bd-links">
-            <ul class="list-unstyled mb-0 py-3 pt-md-1">
-                <% @categories.each do |category| %>
-                    <li class="mb-1">
-                        <button class="btn d-inline-flex align-items-center rounded collapsed" data-bs-toggle="collapse"
-                            data-bs-target="#customize-collapse-<%= category.id %>" aria-expanded="false">
-                            <%= category.name if category.subcategories.any? %>
-                        </button>
-
-                        <div class="collapse" id="customize-collapse-<%= category.id %>">
-                            <ul class="list-unstyled fw-normal pb-1 small">
-                                <% category.subcategories.each do |subcategory| %>
-
-                                    <li>
-                                        <a href="#"
-                                            class="d-inline-flex align-items-center rounded">
-                                            <%= subcategory.name %>
-                                        </a>
-                                    </li>
-
-                                <% end %>
-                            </ul>
-                        </div>
-                    </li>
-                <% end %>
-                <li>
-                    <a href="#" class="d-inline-flex align-items-center rounded">
-                        Wyświetl wszystkie
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </aside>
-    <main class="bd-main bg-primary">
-        This is main content
-    </main>
+<div class="container-xxl">
+    <div class="row">
+        <div class="col-md-3">
+            <%= render 'shared/side_menu' %>
+        </div>
+        <div class="col-sm-9 col-xl-5 offset-xl-0 offset-md-2 col-md-5 p-3 text-center d-flex align-content-center align-items-center">
+            <h4 class="border border-2" id="catalog-info-header">Wybierz kategorię aby zobaczyć dostępne produkty</h3>
+        </div>
+        <div class="col-md-4 d-none d-xl-block d-xxl-block">
+            <%= image_tag 'catalog_photo.jpeg', class:"figure-img img-fluid rounded" %>
+        </div>
+    </div>
 </div>

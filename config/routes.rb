@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'katalog'  => 'catalog#index'
 
-  resources :subcategories, only: [:create, :destroy, :edit, :update]
+  resources :subcategories, only: [:show, :create, :destroy, :edit, :update]
   resources :categories, only: [:index, :create, :destroy, :edit, :update]
   resources :products, only: [:destroy, :show, :index, :create, :new, :edit]
 end

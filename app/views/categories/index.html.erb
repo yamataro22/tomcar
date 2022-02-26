@@ -1,37 +1,39 @@
-<div class="subcategories col-sm-12 col-md-8 offset-md-2">
-    <div class="row my-3 mb-5 col-md-8 offset-md-2">
-        <h3>Stwórz nową kategorię</h3>
-        <%= form_with(model: @category, scope: :category, local: true) do |f| %>
-            <%= render "shared/error_messages" , object: f.object %>
-            <%= f.label :name, "Nazwa kategorii" %>
-            <%= f.text_field :name, class: "form-control" %>
-            <%= f.submit "Stwórz nową" , class: "btn btn-primary" %>
-        <% end %>
-    </div>
-
-    <div class="row my-3 mb-5 col-md-8 offset-md-2">
-        <h3>Stwórz nową podkategorię dla</h3>
-        <%= form_with(model: @subcategory, scope: :subcategory, local: true) do |f| %>
-            <%= render "shared/error_messages" , object: f.object %>
-            <%= f.select :category, @categories.map{|cat| cat.name}, {}, { :class => 'form-select' } %>
-            <%= f.label :name, "Nazwa kategorii" %>
-            <%= f.text_field :name, class: "form-control" %>
-            <%= f.submit "Stwórz nową" , class: "btn btn-primary" %>
-        <% end %>
-    </div>
-
-    <div class="row col-md-12">
-        <ul class="list-group">
-            <% @categories.each do |category| %>
-                <li class="list-group">
-                    <%= render category %>
-                    <ol class="list-group">
-                        <% category.subcategories.each do |subcategory| %>
-                            <%= render subcategory %>
-                        <% end %>
-                    </ol>
-                </li>
+<div class="container">
+    <div class="subcategories col-sm-12 col-md-8 offset-md-2"></div>
+        <div class="row my-3 mb-5 col-md-8 offset-md-2">
+            <h3>Stwórz nową kategorię</h3>
+            <%= form_with(model: @category, scope: :category, local: true) do |f| %>
+                <%= render "shared/error_messages" , object: f.object %>
+                <%= f.label :name, "Nazwa kategorii" %>
+                <%= f.text_field :name, class: "form-control" %>
+                <%= f.submit "Stwórz nową" , class: "btn btn-primary" %>
             <% end %>
-        </ul>
+        </div>
+
+        <div class="row my-3 mb-5 col-md-8 offset-md-2">
+            <h3>Stwórz nową podkategorię dla</h3>
+            <%= form_with(model: @subcategory, scope: :subcategory, local: true) do |f| %>
+                <%= render "shared/error_messages" , object: f.object %>
+                <%= f.select :category, @categories.map{|cat| cat.name}, {}, { :class => 'form-select' } %>
+                <%= f.label :name, "Nazwa kategorii" %>
+                <%= f.text_field :name, class: "form-control" %>
+                <%= f.submit "Stwórz nową" , class: "btn btn-primary" %>
+            <% end %>
+        </div>
+
+        <div class="row col-md-12">
+            <ul class="list-group">
+                <% @categories.each do |category| %>
+                    <li class="list-group">
+                        <%= render category %>
+                        <ol class="list-group">
+                            <% category.subcategories.each do |subcategory| %>
+                                <%= render subcategory %>
+                            <% end %>
+                        </ol>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
     </div>
 </div>

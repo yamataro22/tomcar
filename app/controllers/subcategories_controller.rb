@@ -2,7 +2,6 @@ class SubcategoriesController < ApplicationController
   before_action :logged_in_users, only: [:update, :create, :edit, :destroy]
 
   def create
-
     @category = Category.find_by(name: subcategory_params[:category])
     @subcategory = @category.subcategories.build(name: subcategory_params[:name])
 
@@ -18,6 +17,12 @@ class SubcategoriesController < ApplicationController
     subcategory = Subcategory.find(params[:id]).destroy
     flash[:info] = "Podkategoria usunięta"
     redirect_to categories_path
+  end
+
+  def show
+    @categories = Category.all
+    @subcategory = Subcategory.find(params[:id])
+    @subcategory_products = @subcategory.products
   end
 
   def edit
