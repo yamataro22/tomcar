@@ -1,0 +1,17 @@
+<div class="container-xxl">
+    <div class="row">
+        <div class="col-md-4">
+            <%= render 'shared/side_menu' %>
+        </div>
+        <div class="col text-center">
+            <div class="row justify-content-md-center">
+                <% @subcategory_products.each do |product| %>
+                <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-sm-12 col-xs-12 my-2 mx-auto">
+                    <%= render 'shared/product_card', product: product %>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
