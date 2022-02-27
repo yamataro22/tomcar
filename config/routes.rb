@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get  'main_pages/about'
   get  'main_pages/help'
   get  'main_pages/contact'
+  get  'main_pages/author'
+  get  'main_pages/status'
 
   get  'login'     => 'sessions#new'
   post 'login'     => 'sessions#create'
