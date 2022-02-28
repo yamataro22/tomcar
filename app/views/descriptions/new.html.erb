@@ -1,0 +1,12 @@
+<div class="container text-center">
+    <h3 class="mb-5">
+        Dodaj ogłoszenie na główną stronę.
+    </h3>
+    <div class="col-md-6 offset-md-3">
+        <%= form_with model: @description, scope: :description, remote: false do |f| %>
+            <%= f.hidden_field :name, value: (f.object.name.presence || params[:name]) %>
+            <%= f.text_area :content %>
+            <%= f.submit "Stwórz", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

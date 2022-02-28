@@ -59,7 +59,24 @@
             <% end %>
         </div>
         <div class="col-md-8">
-
+            <% if @attention_description.nil? %>
+                <div>
+                    <p>
+                        Nie stworzono jeszcze żadnego 
+                        ogłoszenia, wciśnij przycisk aby stworzyć.
+                    </p>
+                    <%= link_to "Stwórz ogłoszenie", new_description_path(name: "attention"), class:"btn btn-primary"%>
+                </div>
+            <% else %>
+                <h3 class="mb-2">Ogłoszenie wyświetlane na stronie głównej:</h3>
+                <p class="pt-3">
+                    <%= @attention_description.content %>
+                </p>
+                <%= link_to "Usuń ogłoszenie", description_path(@attention_description),
+                                               method: :delete, 
+                                               class:"btn btn-primary"
+                %>
+            <% end %>
         </div>
     </div>
 </div>

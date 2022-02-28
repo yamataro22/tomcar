@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :subcategories, only: [:show, :create, :destroy, :edit, :update]
   resources :categories, only: [:index, :create, :destroy, :edit, :update]
   resources :products, only: [:destroy, :show, :index, :create, :new, :edit]
+  resources :descriptions, only: [:new, :create, :update, :destroy]
 end

@@ -7,6 +7,20 @@
             </p>
         </header>
         <main class="my-5">
+            <% unless @attention.nil? %>
+                <div class="text-center mx-auto pb-4">
+
+                    <div class="card text-dark bg-light mb-3" style="max-width: 18rem; display: inline-block;">
+                        <div class="card-header text-uppercase">Ogłoszenie</div>
+                        <div class="card-body">
+                          <h5 class="card-title">Uwaga!</h5>
+                          <p class="card-text">
+                              <%= @attention.content %>
+                          </p>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
             <span class="newest-offers">
                 <h3>Najnowsze oferty</h1>
             </span>
