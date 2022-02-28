@@ -18,5 +18,15 @@ class MainPagesController < ApplicationController
   end
 
   def status
+    @products = Product.all
+    @categories = Category.all
+    @subcategories = Subcategory.all
+
+    @counter = 0
+    @subcategories.each do |sub|
+      if sub.products.count == 0
+        @counter += 1
+      end
+    end
   end
 end

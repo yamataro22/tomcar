@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-dark bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header">Asortyment</div>
+                <div class="card-body">
+                    <p class="card-text">
+                    <div class="row">
+                        <div class="col-md-8">
+                            Ilość kategorii:
+                        </div>
+                        <div class="col-md-4">
+                            <%= @categories.count %>
+                        </div>
+                    </div>
+                    </p>
+                    <p class="card-text">
+                    <div class="row">
+                        <div class="col-md-8">
+                            Ilość podkategorii:
+                        </div>
+                        <div class="col-md-4">
+                            <%= @subcategories.count %>
+                        </div>
+                    </div>
+                    </p>
+                    <p class="card-text">
+                    <div class="row">
+                        <div class="col-md-8">
+                            Ilość produktów:
+                        </div>
+                        <div class="col-md-4">
+                            <%= @products.count %>
+                        </div>
+                    </div>
+                    </p>
+                </div>
+            </div>
+            <% if @counter==0 %>
+                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Produkty bez kategorii</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Nie ma obecnie żadnych podkategorii bez
+                            prodktów!
+                        </p>
+                    </div>
+                </div>
+            <% else %>
+                <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Problemy</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Ilość podkategorii bez żadnych produktów:</h5>
+                        <p class="card-text text-center display-2">
+                            <%= @counter %>
+                        </p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="col-md-8">
+
+        </div>
+    </div>
+</div>
